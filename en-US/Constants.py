@@ -17,8 +17,8 @@ CLIENT_SECRET = (" ")
 TOKEN = (" ")
 invite_url = (" ")
 
-# tweets baixados
+# downloaded tweets
 tweets = []
 
-# numero de tweets baixados
+# number of downloaded tweets
 number = 0
