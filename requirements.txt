@@ -1,0 +1,7 @@
+requirements
+importlib
+asyncio
+discord
+requests
+wget
+argparse
