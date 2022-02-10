@@ -5,4 +5,3 @@ discord
 requests
 wget
 argparse
-test
