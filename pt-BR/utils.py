@@ -115,13 +115,19 @@ async def main():
             if get_media_type(last_tweets[x])["media_type"] == "video":
                 video_url = f"https://twitter.com/i/status/{last_tweets[x]}"
                 print("Baixando video...")
-                download_video(video_url, f"./media/{Constants.number}")
+                download_video(video_url, f"./media/{Constants.number}.mp4")
                 print("Video baixado!")
                 print("Enviando para o discord...")
                 enviar_mensagem_discord("", f"./media/{Constants.number}.mp4", Constants.TOKEN, "1234567890")
                 print("Video enviado!")
                 print("Deletando arquivo...")
-                os.remove(f"./media/{Constants.number}.mp4")
+                try:
+                    try:
+                        os.remove(f"./media/{Constants.number}.mp4")
+                    except:
+                        os.remove(f"./media/{Constants.number}")
+                except:
+                    print("Erro ao excluir arquivo")
                 print("Arquivo deletado.")
                 atualizar_numero()
             elif get_media_type(last_tweets[x])["media_type"] == "photo":
@@ -132,7 +138,13 @@ async def main():
                 enviar_mensagem_discord("", f"./media/{Constants.number}{extension}", Constants.TOKEN, "1234567890")
                 print("Foto enviada!")
                 print("Deletando arquivo...")
-                os.remove(f"./media/{Constants.number}{extension}")
+                try:
+                    try:
+                        os.remove(f"./media/{Constants.number}{extension}")
+                    except:
+                        os.remove(f"./media/{Constants.number}")
+                except:
+                    print("Erro ao excluir arquivo")
                 print("Arquivo deletado.")
                 atualizar_numero()
             else:
